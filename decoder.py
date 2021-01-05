@@ -2,6 +2,29 @@ import re
 
 RE_PLURAL_SEG = re.compile(r'(\<.+?\>)')
 
+GENDERS = {
+    'm': 'male',
+    'f': 'female',
+    'nb': 'non-binary',
+    'o': 'other'
+}
+
+SHAPE_AND_FORM = {
+    'h': 'human',
+    's': 'spiritual',
+    '~': 'shape-shifter',
+    'm': 'mammal',
+    'mc': 'canine',
+    'mf': 'feline'
+}
+
+ORIGIN = {
+    'b': 'born with body',
+    't': 'traumagenic',
+    'n': 'natural',
+    'i': 'intentional',
+    'u': 'unknown'
+}
 
 def decode_pluralcode(code: str):
     c = {}
@@ -19,26 +42,12 @@ def decode_pluralcode(code: str):
 
         for part in segment.split(' '):
             if part[0] == 'G':
-                gd = {
-                    'm': 'male',
-                    'f': 'female',
-                    'nb': 'non-binary',
-                    'o': 'other'
-                }
-                headmate['gender'] = gd[part[1:]]
+                headmate['gender'] = GENDERS[part[1:]]
 
             elif part[0] == 'S':
-                gd = {
-                    'h': 'human',
-                    's': 'spiritual',
-                    '~': 'shape-shifter',
-                    'm': 'mammal',
-                    'mc': 'canine',
-                    'mf': 'feline'
-                }
                 form = ""
-                if part[1:] in gd:
-                    form += gd[part[1:]]
+                if part[1:] in SHAPE_AND_FORM:
+                    form += SHAPE_AND_FORM[part[1:]]
                 else:
                     form += part[1:]
                 headmate['form'] = form
@@ -50,14 +59,7 @@ def decode_pluralcode(code: str):
                     headmate['age'] = int(part[1:])
 
             elif part[0] == 'O':
-                gd = {
-                    'b': 'born with body',
-                    't': 'traumagenic',
-                    'n': 'natural',
-                    'i': 'intentional',
-                    'u': 'unknown'
-                }
-                headmate['origin'] = gd[part[1:2]]
+                headmate['origin'] = ORIGIN[part[1:2]]
 
         if 'headmates' in c:
             c['headmates'].append(headmate)
@@ -85,7 +87,7 @@ def decode_pluralcode(code: str):
 
 if __name__ == '__main__':
     plural = decode_pluralcode(
-        "PX0.1 N2 D9 C5 Q8 W4 <Lara: Gf A1 Oi> <Go S~ Ax Ot>")
+        "PX0.1 N2 D9 C5 Q8 W4 <Lara: Gf Sh A1 Oi> <Go S~ Ax Ot>")
     from json import dumps
     print(dumps(plural, indent=4))
     import sys
