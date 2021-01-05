@@ -12,7 +12,7 @@ Q#		- on a scale 1..10 how much amnesia is there between you and your headmates?
 W#		- on a scale 1..10 how how open are you about your pluraliy (1 = closeted, 10 = completely open)
 
 for each headmate:
-	<Name: G# S# A#>
+	<Name: G# S# A# O#>
 	
 	where:
 		"Name:" is entirely optional
