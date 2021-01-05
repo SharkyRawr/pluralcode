@@ -2,6 +2,7 @@ import re
 
 RE_PLURAL_SEG = re.compile(r'(\<.+?\>)')
 
+
 def decode_pluralcode(code: str):
     c = {}
 
@@ -17,7 +18,7 @@ def decode_pluralcode(code: str):
             segment = segment[segment.index(':'):]
 
         for part in segment.split(' '):
-            if part[0] == 'G':               
+            if part[0] == 'G':
                 gd = {
                     'm': 'male',
                     'f': 'female',
@@ -26,7 +27,7 @@ def decode_pluralcode(code: str):
                 }
                 headmate['gender'] = gd[part[1:]]
 
-            elif part[0] == 'S':                
+            elif part[0] == 'S':
                 gd = {
                     'h': 'human',
                     's': 'spiritual',
@@ -42,11 +43,11 @@ def decode_pluralcode(code: str):
                     form += part[1:]
                 headmate['form'] = form
 
-            elif part[0] == 'A':                
+            elif part[0] == 'A':
                 if part[1:] == 'x':
                     headmate['age'] = 'unknown'
                 else:
-                    headmate['age'] =  int(part[1:])
+                    headmate['age'] = int(part[1:])
 
             elif part[0] == 'O':
                 gd = {
@@ -57,12 +58,11 @@ def decode_pluralcode(code: str):
                     'u': 'unknown'
                 }
                 headmate['origin'] = gd[part[1:2]]
-        
+
         if 'headmates' in c:
             c['headmates'].append(headmate)
         else:
             c['headmates'] = [headmate]
-    
 
     for part in code.split(' '):
         if part[0] == 'P':
@@ -79,12 +79,13 @@ def decode_pluralcode(code: str):
             c['amnesia'] = int(part[1:])
         elif part[0] == 'W':
             c['openness'] = int(part[1:])
-        
 
     return c
 
+
 if __name__ == '__main__':
-    plural = decode_pluralcode("PX0.1 N2 D9 C5 Q8 W4 <Lara: Gf A1 Oi> <Go S~ Ax Ot>")
+    plural = decode_pluralcode(
+        "PX0.1 N2 D9 C5 Q8 W4 <Lara: Gf A1 Oi> <Go S~ Ax Ot>")
     from json import dumps
     print(dumps(plural, indent=4))
     import sys
