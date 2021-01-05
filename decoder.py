@@ -92,15 +92,13 @@ if __name__ == '__main__':
         "PX0.1 N2 D9 C5 Q8 W4 <Lara: Gf Sh A1 Oi> <Go S~ Ax Ot>")
     from json import dumps
     print(dumps(plural, indent=4))
-    import sys
-    sys.exit(0)
     try:
         from toml import dumps
         print(dumps(plural))
-    except:
-        pass
+    except Exception as ex:
+        print(ex)
     try:
         from yaml import dump
         print(dump(plural))
-    except:
-        pass
+    except Exception as ex:
+        print(ex)
