@@ -26,8 +26,14 @@ ORIGIN = {
     'u': 'unknown'
 }
 
+
 def decode_pluralcode(code: str):
     c = {}
+
+    if code[0] == 'P':
+        if code[1] != 'X':
+            raise Exception('pluralcode version not implemented')
+        c['version'] = code[2:code.index(' ')]
 
     # scan for headmate segments
     if not '<' in code:
@@ -67,11 +73,7 @@ def decode_pluralcode(code: str):
             c['headmates'] = [headmate]
 
     for part in code.split(' '):
-        if part[0] == 'P':
-            if part[1] != 'X':
-                raise Exception('pluralcode version not implemented')
-            c['version'] = part[2:]
-        elif part[0] == 'N':
+        if part[0] == 'N':
             c['number'] = int(part[1:])
         elif part[0] == 'D':
             c['discovery'] = int(part[1:])
