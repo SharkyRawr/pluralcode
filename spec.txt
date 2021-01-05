@@ -1,4 +1,6 @@
-My modified Pluralcode based on plural.codes:
+My modified Pluralcode inspired by https://plural.codes:
+
+v0.1 - Initial release, written by Sophie and Laura
 
 # == Placeholders
 
