@@ -82,4 +82,16 @@ def decode_pluralcode(code: str):
     return c
 
 if __name__ == '__main__':
-    print(decode_pluralcode("PX0.1 N2 D9 C5 Q8 W4 Gf Gnb Sh S~ A1 Ax Oi Ot"))
+    plural = decode_pluralcode("PX0.1 N2 D9 C5 Q8 W4 Gf Gnb Sh S~ A1 Ax Oi Ot")
+    from json import dumps
+    print(dumps(plural, indent=4))
+    try:
+        from toml import dumps
+        print(dumps(plural))
+    except:
+        pass
+    try:
+        from yaml import dump
+        print(dump(plural))
+    except:
+        pass
