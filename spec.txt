@@ -9,43 +9,40 @@ C#		- on a scale 1..10 how well do you and your headmates communicate with each 
 Q#		- on a scale 1..10 how much amnesia is there between you and your headmates? (1 = remember everything, 10 = remember nothing)
 W#		- on a scale 1..10 how how open are you about your pluraliy (1 = closeted, 10 = completely open)
 
-for each headmate in order:
-	G#		= gender
+for each headmate:
+	<Name: G# S# A#>
 	
-	where # is:
-		m	= male
-		f	= female
-		nb	= non-binary
-		o	= other
-
-for each headmate in the same order as before:
-	S#		= form
-	
-	where # is:
-		h	= human
-		s	= spiritual
-		~	= shape-shifter
-		m	= mammal
-		mc	= canine
-		mf	= feline
+	where:
+		"Name:" is entirely optional
 		
-		or any string for your own form (without spaces)
-
-for each headmate in the same order as before:
-	A#		= age
-	
-	where # is:
-		any number up to 9223372036854775807 (not kidding)
-		x	= unknown age
+		G#	= gender
+		where # is:
+			m	= male
+			f	= female
+			nb	= non-binary
+			o	= other
 		
-
-for each headmate in the same order as before:
-	O#		= origin
-	
-	where # is:
-		Ob	= born with body
-		Ot	= traumagenic
-		On	= natural
-		Oi	= intentional created
-		Ou	= unknown
+		S#	= form
+		where # is:
+			h	= human
+			s	= spiritual
+			~	= shape-shifter
+			m	= mammal
+			mc	= canine
+			mf	= feline
+			
+			or any string for your own form (without spaces)
+		
+		A#	= age
+		where # is:
+			any number up to 9223372036854775807 (not kidding)
+			x	= unknown age
+		
+		O#	= origin	
+		where # is:
+			Ob	= born with body
+			Ot	= traumagenic
+			On	= natural
+			Oi	= intentional created
+			Ou	= unknown
 
