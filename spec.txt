@@ -42,9 +42,9 @@ for each headmate:
 		
 		O#	= origin	
 		where # is:
-			Ob	= born with body
-			Ot	= traumagenic
-			On	= natural
-			Oi	= intentional created
-			Ou	= unknown
+			b	= born with body
+			t	= traumagenic
+			n	= natural
+			i	= intentional created
+			u	= unknown
 
