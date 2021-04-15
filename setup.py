@@ -21,7 +21,7 @@ setuptools.setup(
         "Topic :: Religion",
         "Topic :: Sociology",
         "Programming Language :: Python :: 3",
-        "License :: WTFPL",
+        "License :: Freely Distributable",
         "Operating System :: OS Independent",
     ],
     package_dir={"": "src"},
